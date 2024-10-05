@@ -1,4 +1,4 @@
-import {  deleteSingleFileService, getUploadFileService, uploadMultipleFilesService, uploadSingleFileService } from "../service/fileService.js";
+import {  deleteMultipleFileService, deleteSingleFileService, getUploadFileService, uploadMultipleFilesService, uploadSingleFileService } from "../service/fileService.js";
 
 export const uploadSingleFile = async (req, res) => {
     let result = await uploadSingleFileService(req);
@@ -14,5 +14,9 @@ export const getUploadFile = (req, res) => {
 }
 export const deleteSingleFile = (req, res) => {
     let result = deleteSingleFileService(req, res);
+    return res.status(200).json(result);
+}
+export const deleteMultipleFile = (req, res) => {
+    let result = deleteMultipleFileService(req, res);
     return res.status(200).json(result);
 }

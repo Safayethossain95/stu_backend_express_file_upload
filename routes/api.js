@@ -13,5 +13,8 @@ router.post("/upload-single-file",FilesController.uploadSingleFile)
 router.post("/upload-multiple-files",FilesController.uploadMultipleFile)
 router.get("/read-file/:fileName", FilesController.getUploadFile)
 router.delete("/delete-single-file/:fileName", FilesController.deleteSingleFile)
+router.delete("/delete-multiple-file", FilesController.deleteMultipleFile)
+
+
 
 export default router;

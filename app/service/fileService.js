@@ -68,3 +68,20 @@ export const deleteSingleFileService = (req, res) => {
         return { status: false, data: err.toString() };
     }
 }
+export const deleteMultipleFileService = (req, res) => {
+    try{
+        let files = req.body.file
+        for (let i = 0; i < files.length; i++){
+            const filePath = path.join(__dirname, '../../uploads', files[i]);
+            fs.unlink(filePath,(err)=>{
+                if (err) {
+                    return { status: false, data: "Error occurred while deleting the file." };
+                }
+            })
+        }
+    
+        return { status: true, data: "Files deleted successfully!" };
+    }catch (err) {
+        return { status: false, data: err.toString() };
+    }
+}
